@@ -1,37 +1,14 @@
 {:assumptions
-  {A1 (Dog dog1)                     ;; dog1 = dog up in the tree
-   A2 (Dog dog2)                     ;; dog2 = dog on the ground
-   A3 (Fox fox)
-
-   ;; Facts about the situation
-   A4 (InTree dog1)
-   A5 (OnLoosePlank dog1)
-
-   ;; If a dog is in a tree on a loose plank, that dog is in danger.
-   A6 (if (and (InTree dog1)
-               (OnLoosePlank dog1))
-         (InDanger dog1))
-
-   ;; Ground dog (dog2) believes dog1 is in danger.
-   A7 (Believes! dog2 (InDanger dog1))
-
-   ;; If dog2 believes dog1 is in danger, dog2 shouts a warning.
-   A8 (if (Believes! dog2 (InDanger dog1))
-         (ShoutsWarning dog2 dog1))
-
-   ;; The fox can help dog1.
-   A9 (CanHelp fox dog1)
-
-   ;; If dog1 is in danger and the fox can help, the fox should help dog1.
-   A10 (if (and (InDanger dog1)
-                (CanHelp fox dog1))
-          (ShouldHelp fox dog1))}
+  {A1 p                             ;; p: dog1 is in a tree on a loose plank
+   A2 (if p d)                      ;; if p then dog1 is in danger (d)
+   A3 (Believes! dog2 d)            ;; dog2 believes that d
+   A4 (if (Believes! dog2 d) s)     ;; if dog2 believes d, then s (dog2 shouts)
+   A5 c                             ;; c: fox can help dog1
+   A6 (if (and d c) h)}             ;; if dog1 in danger and fox can help, then h
 
  :goal
-   ;; Answers the card’s questions:
-   ;; - Who is in danger?      -> (InDanger dog1)
-   ;; - What is the dog shouting? -> (ShoutsWarning dog2 dog1)
-   ;; - What should the fox do?   -> (ShouldHelp fox dog1)
-   (and (InDanger dog1)
-        (ShoutsWarning dog2 dog1)
-        (ShouldHelp fox dog1))}
+   ;; We want to conclude:
+   ;;  d: dog1 is in danger
+   ;;  s: dog2 shouts a warning
+   ;;  h: the fox should help dog1
+   (and d s h)}
