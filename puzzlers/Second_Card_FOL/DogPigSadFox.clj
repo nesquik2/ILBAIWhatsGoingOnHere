@@ -27,12 +27,10 @@
                 (not (sittingTogether z y)) (lookingAt z x) (lookingAt z y)
                 (not (Smiling z)) (not (Laughing z)))
             (mightFeelExcluded z)))
+
+  ;; reasoning about fox feelings
    A19 (forall (z) (if (mightFeelExcluded z) (wantsToJoin z)))
-
-   ;; emotional inference from exclusion 
    A20 (forall (z) (if (mightFeelExcluded z) (Feeling z sad)))
-
-   ;; possible exclusionary behavior definition
    A21 (forall (x y z) (if (and (includedWithEachOther x y) (lookingAt z x) (lookingAt z y)
             (mightFeelExcluded z)) (possiblyBeingMean x y z)))
  }
