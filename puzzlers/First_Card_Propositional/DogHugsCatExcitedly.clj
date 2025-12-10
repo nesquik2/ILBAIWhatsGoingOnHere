@@ -1,4 +1,6 @@
 {
+ :logic :prop
+ 
  :assumptions
  {
    ;; Fact: Dog1 is hugging the cat
