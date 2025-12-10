@@ -6,8 +6,3 @@
               ;not propositional!!!can revisit this later though A5 (if (gives_flowers x y) (friends x y))
                 }
  :goal (and A_happy (implies B_holds_flowers_for_A A_happy))}   
-
-;;  {:assumptions {
-;;     }
- 
-;; :goal }
