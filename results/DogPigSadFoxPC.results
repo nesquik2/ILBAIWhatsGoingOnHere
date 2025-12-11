@@ -1,0 +1,31 @@
+--------------- Starting ShadowProver --------------- 
+(:FOLFromSnark
+ Givens:
+((sitting_ab
+    (GIVEN[]))
+(implies (and talking_ab smiling_a smiling_b sitting_ab ) included_ab)
+(not sitting_ca)
+(not sitting_cb)
+(not laughing_c)
+
+(talking_ab
+    (GIVEN[]))
+
+(looking_c_a
+    (GIVEN[]))
+
+(looking_c_b
+    (GIVEN[]))
+(implies (and included_ab might_excluded_c ) possibly_being_mean_ab_c)
+(implies might_excluded_c wants_join_c)
+
+(smiling_a
+    (GIVEN[]))
+
+(smiling_b
+    (GIVEN[]))
+(not smiling_c)
+(implies might_excluded_c feeling_c_sad)
+(implies (and included_ab (not sitting_ca) (not sitting_cb) looking_c_a looking_c_b (not smiling_c) (not laughing_c) ) might_excluded_c)) 
+ Goals:
+(and wants_join_c feeling_c_sad possibly_being_mean_ab_c ))
