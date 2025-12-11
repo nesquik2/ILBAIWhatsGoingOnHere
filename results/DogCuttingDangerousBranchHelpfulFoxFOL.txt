@@ -1,0 +1,24 @@
+(:FOLFromSnark
+ Givens:
+(((OnLooseBranch dog1)
+    (GIVEN[]))
+(implies (and (InTree dog1) (OnLooseBranch dog1) ) (InDanger dog1))
+
+((InTree dog1)
+    (GIVEN[]))
+
+((Fox fox)
+    (GIVEN[]))
+(implies (InDanger dog1) (ShoutsWarning dog2 dog1))
+(implies (and (InDanger dog1) (CanHelp fox dog1) ) (ShouldHelp fox dog1))
+
+((Dog dog2)
+    (GIVEN[]))
+
+((Dog dog1)
+    (GIVEN[]))
+
+((CanHelp fox dog1)
+    (GIVEN[]))) 
+ Goals:
+(and (InDanger dog1) (ShoutsWarning dog2 dog1) (ShouldHelp fox dog1) ))
