@@ -1,0 +1,46 @@
+--------------- Starting ShadowProver --------------- 
+(:FOLFromSnark
+ Givens:
+((forall (z) (implies (mightFeelExcluded z) (Feeling z sad)))
+(forall (x y z) (implies (and (includedWithEachOther x y) (lookingAt z x) (lookingAt z y) (mightFeelExcluded z) ) (possiblyBeingMean x y z)))
+
+((sittingTogether A B)
+    (GIVEN[]))
+(forall (x y) (implies (and (talkingWith x y) (Smiling x) (Smiling y) ) (friendlyInteraction x y)))
+
+((Smiling A)
+    (GIVEN[]))
+(not (Smiling C))
+
+((Smiling B)
+    (GIVEN[]))
+(forall (x y) (implies (sittingTogether x y) (closeProximity x y)))
+
+((talkingWith A B)
+    (GIVEN[]))
+
+((lookingAt B A)
+    (GIVEN[]))
+(forall (x y z) (implies (and (includedWithEachOther x y) (not (sittingTogether z x)) (not (sittingTogether z y)) (lookingAt z x) (lookingAt z y) (not (Smiling z)) (not (Laughing z)) ) (mightFeelExcluded z)))
+(not (sittingTogether C B))
+(forall (z) (implies (mightFeelExcluded z) (wantsToJoin z)))
+(not (sittingTogether C A))
+(forall (x y) (implies (and (friendlyInteraction x y) (closeProximity x y) ) (includedWithEachOther x y)))
+
+((lookingAt C B)
+    (GIVEN[]))
+
+((Laughing A)
+    (GIVEN[]))
+
+((Laughing B)
+    (GIVEN[]))
+
+((lookingAt A B)
+    (GIVEN[]))
+
+((lookingAt C A)
+    (GIVEN[]))
+(not (Laughing C))) 
+ Goals:
+(and (wantsToJoin C) (Feeling C sad) (possiblyBeingMean A B C) ))
