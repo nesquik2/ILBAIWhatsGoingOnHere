@@ -1,0 +1,14 @@
+(:FOLFromSnark
+ Givens:
+((forall (x) (implies (StuckHigh x) (Frightened x)))
+
+((StuckHigh puppy)
+    (GIVEN[]))
+(forall (y z action) (implies (TakesAction y z action) (IsRescued z)))
+(forall (y z) (implies (CanHelp y z) (exists (action) (TakesAction y z action))))
+(forall (x) (implies (Frightened x) (IsCrying x)))
+
+((CanHelp pig puppy)
+    (GIVEN[]))) 
+ Goals:
+(exists (action) (and (IsCrying puppy) (TakesAction pig puppy action) (IsRescued puppy) )))

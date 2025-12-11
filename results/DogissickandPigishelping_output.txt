@@ -1,0 +1,13 @@
+(:FOLFromSnark
+ Givens:
+((implies (and b s ) r)
+
+(c
+    (GIVEN[]))
+
+(i
+    (GIVEN[]))
+(implies i b)
+(implies (and i c ) s)) 
+ Goals:
+(and b s r ))
