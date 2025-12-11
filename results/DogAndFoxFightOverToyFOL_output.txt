@@ -1,0 +1,31 @@
+(:FOLFromSnark
+ Givens:
+((forall (x y t) (implies (and (Wants x t) (Wants y t) (Valuable t) ) (Conflict x y)))
+(implies (and (Wants Kid1 Truck1) (Wants Kid2 Truck1) ) Q2)
+
+((Watching AdultFox Kid2)
+    (GIVEN[]))
+
+((Watching AdultFox Kid1)
+    (GIVEN[]))
+
+((Wants Kid2 Truck1)
+    (GIVEN[]))
+(forall (x y) (implies (Fighting x y) (exists (t) (and (Wants x t) (Wants y t) ))))
+(forall (x y) (implies (Conflict x y) Q1))
+
+((WantsSharing AdultFox)
+    (GIVEN[]))
+
+((Valuable Truck1)
+    (GIVEN[]))
+
+((Wants Kid1 Truck1)
+    (GIVEN[]))
+(forall (x y) (implies (and (Conflict x y) (Watching AdultFox x) (Watching AdultFox y) (WantsSharing AdultFox) ) Q4))
+
+((Fighting Kid1 Kid2)
+    (GIVEN[]))
+(implies (and (Watching AdultFox Kid1) (Watching AdultFox Kid2) ) Q3))
+ Goals:
+(and Q1 Q2 Q3 Q4 ))

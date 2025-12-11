@@ -1,0 +1,22 @@
+(:FOLFromSnark
+ Givens:
+((Dog2Watching
+    (GIVEN[]))
+(implies Dog1Friendly PositiveIntent)
+(implies (and Dog1Friendly ActionUnexpected ) Q2)
+(implies (not CatExpectedHug) Q3)
+
+(CatSurprised
+    (GIVEN[]))
+(implies Dog2Watching Q1)
+
+(Dog1Friendly
+    (GIVEN[]))
+
+(HuggingDog1Cat
+    (GIVEN[]))
+(implies (and Dog1Friendly ActionUnexpected Dog2Watching ) Q4)
+(not CatExpectedHug)
+(implies CatSurprised ActionUnexpected))
+ Goals:
+(and Q1 Q2 Q3 Q4 ))
